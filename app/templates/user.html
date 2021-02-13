@@ -9,10 +9,23 @@
 				{% if user.about_me %}
 					<p>{{ user.about_me }}</p>
 				{% endif %}
-
+<p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
 				{% if user.last_seen %}
 					<p>Last seen on:{{ user.last_seen }}</p>
 				{% endif %}
+                {% if user == current_user %}
+        <p>
+            <a href="{{ url_for('edit_profile') }}">Edit your profile</a>
+        </p>
+    {% elif not current_user.is_following(user) %}
+        <p>
+            <a href="{{ url_for('follow', username=user.username) }}">Follow</a>
+        </p>
+    {% else %}
+        <p>
+            <a href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a>
+        </p>
+    {% endif %}
 			</td>
 		</tr>
 	</table>
@@ -21,13 +34,6 @@
 	{% for post in posts %}
 		{% include '_post.html' %}
 	{% endfor%}
-	{% if user.last_seen %}
-					<p>Last seen on:{{ user.last_seen }}</p>
-				{% endif %}
 
-				{% if user == current_user %}#判断 浏览该用户个人网页是否是本人,如果不是不开放个人信息编辑功能,验证通过就开放个人编辑功能
-					<p>
-						<a href="{{ url_for('edit_profile') }}">Edit your profile</a>
-					</p>
-				{% endif %}
-{% endblock%}
+<!--        #判断 浏览该用户个人网页是否是本人,如果不是不开放个人信息编辑功能,验证通过就开放个人编辑功能-->
+{% endblock %}
