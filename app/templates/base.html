@@ -9,6 +9,8 @@
 	<body>
 		<div>Microblog:
 			<a href="{{ url_for('index') }}">Home</a>
+			<a href="{{ url_for('explore') }}">Explore</a>
+<!--			#未登录是表达为true-->
 			{% if current_user.is_anonymous %}
 				<a href="{{ url_for('login') }}">Login</a>
 			{% else %}
