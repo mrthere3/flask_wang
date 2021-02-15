@@ -61,11 +61,11 @@ class User(UserMixin, db.Model):
         if not self.is_following(user):
             self.followed.append(user)
 
-    def unfollow(self, user):
+    def unfollow(self, user):#判断当前用户是否关注该用户,是则取消关注 将该用户从关注列表删除
         if self.is_following(user):
             self.followed.remove(user)
 
-    def is_following(self, user):
+    def is_following(self, user):#通关return一个判断的大于0的查询语句,介乎if 进行事后关注过得功能实现
         return self.followed.filter(followers.c.followed_id == user.id).count() > 0
 
     def followed_posts(self):
