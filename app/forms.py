@@ -18,11 +18,11 @@ class LoginForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
+    username = StringField(_l('Username'), validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    password = PasswordField(_l('Password'), validators=[DataRequired()])
     password2 = PasswordField(
-        'Repeat Password', validators=[DataRequired(), EqualTo('password')])
+        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Register')
 
     def validate_username(self, username):
@@ -37,22 +37,22 @@ class RegistrationForm(FlaskForm):
 
 
 class EditProfileForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    about_me = TextAreaField('About_me', validators=[Length(min=0, max=140)])
-    submit = SubmitField('Submit')
+    username = StringField(_l('Username'), validators=[DataRequired()])
+    about_me = TextAreaField(_l('About_me'), validators=[Length(min=0, max=140)])
+    submit = SubmitField(_l('Submit'))
 
 
 class ResetPasswordRequestForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
-    submit = SubmitField('Request Password Reset')
+    submit = SubmitField(_l('Request Password Reset'))
 
 
 class ResetPasswordForm(FlaskForm):
-    password = PasswordField('Password', validators=[DataRequired()])
-    password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Request Password Reset')
+    password = PasswordField(_l('Password'), validators=[DataRequired()])
+    password2 = PasswordField(_l('Repeat Password'), validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField(_l('Request Password Reset'))
 
 
 class PostForm(FlaskForm):
-	post = TextAreaField('Say something', validators=[DataRequired(), Length(min=1, max=140)])
-	submit = SubmitField('Submit')
+	post = TextAreaField(_l('say something'), validators=[DataRequired(), Length(min=1, max=140)])
+	submit = SubmitField(_l('Submit'))

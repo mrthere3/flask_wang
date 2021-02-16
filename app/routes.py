@@ -21,13 +21,20 @@ from flask_babel import _
 from flask_login import current_user, login_user, logout_user
 from flask_login import login_required
 from werkzeug.urls import url_parse
+from flask import g
+from flask_babel import get_locale
+from guess_language import guess_language #python的语言检测库
+from flask import jsonify
+from app.translate import translate
 
 
 @app.before_request
 def before_request():
     if current_user.is_authenticated:
-        current_user.last_seen = datetime.utcnow()  # 设置请求中间件 在每次请求之前 将时间传入数据库
+        current_user.last_seen = datetime.utcnow()
         db.session.commit()
+    #g.locale = str(get_locale())
+    g.locale = 'zh_CN'if str(get_locale()).startswith('zh') else str(get_locale())
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -36,7 +43,11 @@ def before_request():
 def index():
     form = PostForm()
     if form.validate_on_submit():
-        post = Post(body=form.post.data, author=current_user)
+        language = guess_language(form.post.data)
+        if language == 'UNKNOWN' or len(language) > 5:
+            language = ''
+        post = Post(body=form.post.data, author=current_user,
+                    language=language)
         db.session.add(post)
         db.session.commit()
         flash(_('Your post is now live!'))
@@ -186,3 +197,14 @@ def explore():
     next_url = url_for('explore', page=posts.next_num) if posts.has_next else None
     prev_url = url_for('explore', page=posts.prev_num) if posts.has_prev else None
     return render_template('index.html', title='Explore', posts=posts.items, next_url=next_url, prev_url=prev_url)
+
+
+@app.errorhandler(400)
+def page_not_found(e):
+    return render_template('404.html'),404
+
+
+@app.route('/translate', methods=['POST'])
+@login_required
+def translate_text():
+    return jsonify({'text': translate(request.form['text'],request.form['source_language'],request.form['dest_language'])})

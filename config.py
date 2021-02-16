@@ -13,7 +13,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(basedir, 'microblog.env'))
 
 
-
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you will never guess'
     ADMINS = ['your-email@example.com']
@@ -27,3 +26,5 @@ class Config:
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     LANGUAGES = ['en', 'zh']
+    APPID = "20200415000421044"""
+    BD_TRANSLATOR_KEY = "dw32JjMJcQj_3MHEiGma"
