@@ -1,0 +1,128 @@
+2021-02-16 23:00:03,316 INFO: Microblog startup [in E:\python work\microblogs\app\__init__.py:62]
+2021-02-16 23:04:55,561 INFO: Microblog startup [in E:\python work\microblogs\app\__init__.py:62]
+2021-02-16 23:04:59,925 ERROR: Exception on /auth/reset_password_request [POST] [in F:\anaconda\envs\python38\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\python work\microblogs\app\auth\routes.py", line 62, in reset_password_request
+    send_password_reset_email(user)
+  File "E:\python work\microblogs\app\auth\email.py", line 12, in send_password_reset_email
+    send_email(_('[Microblog] Reset Your Password'),
+  File "E:\python work\microblogs\app\email.py", line 21, in send_email
+    send_async_email(current_app, msg)
+  File "E:\python work\microblogs\app\email.py", line 13, in send_async_email
+    mail.send(msg)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask_mail.py", line 492, in send
+    message.send(connection)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask_mail.py", line 427, in send
+    connection.send(self)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask_mail.py", line 188, in send
+    self.host.sendmail(sanitize_address(envelope_from or message.sender),
+  File "F:\anaconda\envs\python38\lib\smtplib.py", line 871, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'Mail from must equal authorized user', 'your-email@example.com')
+2021-02-16 23:05:48,286 ERROR: Exception on /auth/reset_password_request [POST] [in F:\anaconda\envs\python38\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\python work\microblogs\app\auth\routes.py", line 62, in reset_password_request
+    send_password_reset_email(user)
+  File "E:\python work\microblogs\app\auth\email.py", line 12, in send_password_reset_email
+    send_email(_('[Microblog] Reset Your Password'),
+  File "E:\python work\microblogs\app\email.py", line 21, in send_email
+    # send_async_email(current_app, msg)
+  File "E:\python work\microblogs\app\email.py", line 13, in send_async_email
+    mail.send(msg)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask_mail.py", line 492, in send
+    message.send(connection)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask_mail.py", line 427, in send
+    connection.send(self)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask_mail.py", line 188, in send
+    self.host.sendmail(sanitize_address(envelope_from or message.sender),
+  File "F:\anaconda\envs\python38\lib\smtplib.py", line 871, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'Mail from must equal authorized user', 'your-email@example.com')
+2021-02-16 23:05:51,529 ERROR: Exception on /auth/reset_password_request [POST] [in F:\anaconda\envs\python38\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\python work\microblogs\app\auth\routes.py", line 62, in reset_password_request
+    send_password_reset_email(user)
+  File "E:\python work\microblogs\app\auth\email.py", line 12, in send_password_reset_email
+    send_email(_('[Microblog] Reset Your Password'),
+  File "E:\python work\microblogs\app\email.py", line 21, in send_email
+    # send_async_email(current_app, msg)
+  File "E:\python work\microblogs\app\email.py", line 13, in send_async_email
+    mail.send(msg)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask_mail.py", line 492, in send
+    message.send(connection)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask_mail.py", line 427, in send
+    connection.send(self)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask_mail.py", line 188, in send
+    self.host.sendmail(sanitize_address(envelope_from or message.sender),
+  File "F:\anaconda\envs\python38\lib\smtplib.py", line 871, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'Mail from must equal authorized user', 'your-email@example.com')
+2021-02-16 23:06:05,864 INFO: Microblog startup [in E:\python work\microblogs\app\__init__.py:62]
+2021-02-16 23:06:35,796 INFO: Microblog startup [in E:\python work\microblogs\app\__init__.py:62]
+2021-02-16 23:08:35,669 INFO: Microblog startup [in E:\python work\microblogs\app\__init__.py:62]
+2021-02-16 23:08:42,137 ERROR: Exception on /auth/reset_password_request [POST] [in F:\anaconda\envs\python38\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "F:\anaconda\envs\python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "E:\python work\microblogs\app\auth\routes.py", line 62, in reset_password_request
+    send_password_reset_email(user)
+  File "E:\python work\microblogs\app\auth\email.py", line 12, in send_password_reset_email
+    send_email(_('[Microblog] Reset Your Password'),
+  File "E:\python work\microblogs\app\email.py", line 22, in send_email
+    mail.send(msg)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask_mail.py", line 492, in send
+    message.send(connection)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask_mail.py", line 427, in send
+    connection.send(self)
+  File "F:\anaconda\envs\python38\lib\site-packages\flask_mail.py", line 188, in send
+    self.host.sendmail(sanitize_address(envelope_from or message.sender),
+  File "F:\anaconda\envs\python38\lib\smtplib.py", line 871, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (553, b'Mail from must equal authorized user', 'your-email@example.com')
+2021-02-16 23:11:30,877 INFO: Microblog startup [in E:\python work\microblogs\app\__init__.py:62]
